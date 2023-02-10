@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* reset */
+*{margin: 0;padding: 0;}
+.clearfox:after{
+    content:"" ; display: block; clear:both ;
+}
+li{list-style: none;}
+a:link,a:visited{text-decoration: none; 
+        color:black;}
+
+/* header */
+/* header#hd h1 // header의 id를 hd 라했기에 */
+#hd{
+    width: 1000px;
+    margin: 0 auto;
+    background-color:pink;
+}
+/* #hd h1{ 
+    background-color: skyblue ; 
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;*/
+    
+h1.logo{ background-color: skyblue ;  
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;}*/
+
+/* #hd h1 a{ 
+    display: block;
+    background-color: blue;
+     display: block;  // a tag는 inline 이랑 블럭단위로 바꿔줌
+    } */
+  h1.logo a { 
+    display: block;
+    background-color: blue;}*/
+    /* text-align:initial */
+
+.menu li{
+    float: left;
+    width: 20%;
+    }
+/* .menu li:first-child{border-left: 2px solid black} */
+/* .menu li.first{border-left :  */
+    .menu li a:hover{background-color: violet;}
+.menu li a{
+    display: block;
+    text-align:center;
+    line-height: 40px;
+    border: 1px solid black ;
+}

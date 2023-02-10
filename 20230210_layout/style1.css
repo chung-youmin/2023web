@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+/* RESET = init */
+*{margin: 0;padding: 0;}
+/* *{margin: 0 0;}  위아래   좌우  */
+li{list-style: none;}
+.clearfix:after{
+    content:""; display: block;  clear:both;
+}
+
+/* body */
+div.wrap{
+   width: 1000px;
+   margin: 0 auto; 
+   background-color: skyblue;
+}
+/* div.wrap>ul>li{} // 바로 밑에 있느 아이들만 콕 찝어서 정해줌. */
+/* div.wrap ul li{} // 하부에 있는 li인 애들 다 해당됨. */
+/* .wrap li{} 결국 위에 3개 모두 비슷한 녀석임. */ 
+
+div.wrap>ul>li{
+   background-color: pink;  
+   width:20%;
+   float: left;
+    text-align: center;
+    line-height: 50px;
+}
+/* visual */
+.visual{
+    height: 500px;
+    background-color: skyblue;}
