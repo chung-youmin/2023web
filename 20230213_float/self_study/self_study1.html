@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* reset */
+    *{margin: 0;padding: 0;box-sizing: border-box;}
+    a:link,a:visited{ text-decoration: none; color:black; }
+    .clearfix:after{content:"";display:block;clear:both}
+    li{list-style: none;}
+
+header#hd{width: 1000px;
+margin: 0 auto;
+background-color:green;
+}
+.logo{
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: yellow; 
+}
+
+.logo a{display: block;
+}
+
+.menu li{float:left;
+width:20%}
+
+.menu li a{
+    display:block;
+    background-color: skyblue;
+    line-height: 40px;
+    text-align: center;}
+
+.menu li a:hover{
+    background-color: orange;
+    color:green;
+    transition:0.3s}   
+
+/* visual */
+.visual{height: 300px;
+background-color:green;
+text-align: center;
+
+display: flex;
+justify-content: center;
+align-items: center;}
+
+/* container */
+.container{
+    width: 1000px;
+    margin: 0 auto;
+}
+.container .aside, 
+.container .content{
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+        }
+
+.container .aside{
+    width: 300px;
+    background-color:lightyellow
+    }
+.container .content{
+    width: 680px;
+    background-color: aqua;
+    float: right;
+    }
+
+#ft{
+    width: 1000px;
+    height: 100px;
+    margin: 0 auto;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+</style>
+<body>
+<div class="wrap">
+    <header id="hd">
+        <h1 class="logo"><a href="#">logo</a></h1>
+    
+    <nav class="menu">
+        <ul class="clearfix">
+            <li><a href="#">menu01</a></li>
+            <li><a href="#">menu02</a></li>
+            <li><a href="#">menu03</a></li>
+            <li><a href="#">menu04</a></li>
+            <li><a href="#">menu05</a></li>
+        </ul>
+    </nav>
+</header>
+    <div class="visual">visual<br>yum yum yum </div>
+        <div class="container clearfix">
+            <aside class="aside">aside</aside>
+            <section class="content">content</section>
+    </div>
+    <footer id="ft">footer</footer>
+</div>
+</body>
+</html>
