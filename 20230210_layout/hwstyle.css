@@ -43,8 +43,14 @@ h1.logo a{
     background-color: violet;
 }
 
-.art{
+.wrap2{
     margin: 0 auto;
-    background-color:forestgreen;
-    
+    background-color:forestgreen;    
+}
+
+.wrap3> left{
+    float: left;
+    background-color: darkblue;
+}
+
 }
