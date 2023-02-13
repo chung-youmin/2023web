@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float_4</title>
+<style>
+/* reset (2. reset 값을 정해준다)*/
+*{
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+}
+a:link,a.visited{
+    text-decoration: none;
+    color: #222;
+}
+
+/* (5. li부터 작성하자) */
+li{list-style: none;}
+        .clearfix:after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+/* 사이트의 크기를 먼저 알고 해야 한다.  */
+
+/* header */
+/* 
+* < tag < class < id < inline style < !important
+ */
+
+header#hd{
+    width: 1000px;
+    margin: 0 auto;
+    background-color: #0f0;
+}
+/* 10.logo의 디자인 */
+.logo{
+    width: 100px;
+    background-color: #f00;
+    margin: 0 auto;
+    text-align: center;
+     margin-bottom: 10px;  /*13. 상단 부분  */
+}
+.logo a{
+    display: block;
+    /* text-align: initial; */
+}
+/* 11.menu가 여러개 있을 수 있으므로 부모자 부터 넣는 것도 좋다. */
+
+/* nav */
+.menu li{float: left;width: 20%;}
+.menu li a{
+   display: block; 
+   /* height: 40px; */
+   background-color:skyblue;
+   line-height: 40px;
+   text-align: center;
+    /* display: flex;  flex 는 블럭단위임. 
+    justify-content: center; jcc 가로 
+    align-items: center;   alc 세로축 */
+}
+/* 12.hover는 마우스를 가져다 댔을때 나타나는 거라 a 에 설정해줘야한다 */
+.menu li a:hover{
+    background-color:blue;
+    color : #fff;
+    transition: 0.3s;
+    /* 0.3sec 반응  */
+}
+
+/* visual */
+.visual{
+    height: 300px ;
+    background-color: #ddd;
+    text-align: center;  
+    /* height과 line height가 같아서 글씨가 가운데로 옴  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* contaniner*/
+
+/*15.  12grid를 일반적으로 기본으로 생각한다.  가로로 12개의 칸이 있다고 생각하자.  */
+.container{
+    width: 1000px;
+    margin: 0 auto;
+}
+.container .content, .container .aside{  
+    float: left;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+.contaniner .aside{
+    width: 300px;
+    background-color:yellow; 
+    
+   /* float: left;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;*/
+}
+
+.container .content{
+    width: 680px;
+    background-color: #0ff;
+    float: right;
+/* float: left;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;*/    
+}
+     /* 17. footer 작성.*/
+    #ft{
+       width: 1000px;
+       height: 100px;
+       margin: 0 auto;
+    background-color: violet;
+   display: flex;
+   justify-content: center;
+   align-items: center;  
+    }
+</style>
+
+
+</head>
+<!-- 1.body 부터 작성한다. -->
+<body>
+    <!--3. header 안을 작성하자 -->
+   <header id="hd">  
+     <!-- 8. id값을 지정해준다  -->
+    <h1  class="logo"><a href="#">logo</a></h1>
+<!--9.  h1 class 값지정 -->
+<!-- 4. 메뉴를 class 이름과 함께 넣자 -->
+    <nav class="menu">  <!-- 11. clearfix 넣자 -->    
+        <ul class="clearfix">
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu2</a></li>
+            <li><a href="#">menu3</a></li>
+            <li><a href="#">menu4</a></li>
+            <li><a href="#">menu5</a></li>
+    </ul>
+</nav>
+
+   </header> 
+<div class="visual">visual<br>dddd</div>
+<div class="container clearfix"></div> 
+<!-- 14. container 를 채워보자 class지정하고  -->
+<aside class="aside">aside</aside>
+<section class="content">content</section>
+<!-- 16.footer의 id 값 지정  -->
+<footer id="ft">footer</footer>
+</body>
+
+
+
+</html>
