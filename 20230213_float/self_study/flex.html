@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+<style>
+/* reset */
+*{margin: 0;padding: 0;box-sizing: border-box;}
+.clearfix:after{content: "";display:block ;
+clear: both;}
+li{list-style: none;}
+a:link,a:visited{color: black;text-decoration: none;}
+
+.container{background-color:powderblue;
+            display: flex;
+        flex-direction: row;}
+.item{background-color: tomato;
+      color: white;
+      border:1px solid white;
+}
+.item:nth-child(2){flex-basis: 200px;}
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+</body>
+</html>

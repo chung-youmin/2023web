@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>holy grail layout</title>
+<style>
+/* reset */
+/* *{margin: 0;padding: 0;}
+.clearfix:after{content: ""; display: block;clear:both}
+li{list-style-type: none;}
+a:link,a:visited{color: black;text-decoration: none;} */
+
+    .container{display:flex;
+                flex-direction: column;}
+    header{border-bottom: 1px solid gray;
+            padding-left: 20px;}
+    footer{border-top: 1px solid gray;
+            padding-left: 20px;}
+    .content{display:flex;}
+    .content nav{border-right:1px solid gray;}
+    .content aside{border-left:1px solid gray;}
+    nav,aside{
+        flex-basis: 150px;
+        flex-shrink: 0;}
+    main{padding: 10px;}    
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>아침 연습</h1>
+
+        </header>
+        <section class="content">
+            <nav>
+                <ul>
+                    <li>day1</li>
+                    <li>day2</li>
+                    <li>day3</li>
+                </ul>
+            </nav>    
+            <main>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, beatae facere. Rerum delectus quam praesentium ab, quae repellendus sequi illo, perspiciatis illum dignissimos ea. Aliquid facere sequi numquam ipsum dolorem?
+            </main>
+            <aside>AD
+            </aside>
+           
+        </section>
+
+        <footer>
+            <a href="http://www.naver.com">네이버 검색</a>
+        </footer>
+    </div>
+    
+</body>
+</html>
