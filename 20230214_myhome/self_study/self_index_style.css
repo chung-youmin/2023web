@@ -13,14 +13,16 @@ li{list-style: none;}
 body{font-family: 'Nanum Gothic', sans-serif;
 font-size:14px;}
 h3.title{font-size: 18px;letter-spacing: -1px;}
+
 /* header */
 #hd .top{background-color: red;}
 #hd .submenu{float: right; background-color: skyblue;position:absolute;right:0;top:10px;}
 #hd .submenu li{float: left;}
 #hd .submenu a{
+    display:block;
+
     font-size: 18px;
     padding: 0 10px;
-    display:block;
     position:relative;
     left:0;
     top:9px;
