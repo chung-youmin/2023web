@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="../20230220_bxslide/css/jquery.bxslider.min.css">
+
+<style>
+  *{margin: 0;padding: 0;box-sizing: border-box;}
+  li{list-style: none;}
+  
+body{background-color: pink;}
+.slide li img{width:100%;}
+
+.wrap{width: 1000px;margin: 0 auto;}
+.content{
+  height: 200px; background: skyblue;
+}
+
+bx-wrapper{
+  position: relative;
+    margin-bottom: 0px;
+    padding: 0;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -moz-box-shadow: 0 0 5px #ccc;
+    -webkit-box-shadow: 0 0 5px #ccc;
+    box-shadow: 0 0 5px #ccc;
+    border: 5px solid #fff;
+    background: #fff;}
+
+</style>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.bxslider.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $(".slide").bxSlider();
+  });
+
+
+
+
+  </script>
+</head>
+
+<body>
+
+<div class="wrap">
+  <ul class="slide">
+    <li><img src="../img/pc01.jpg" alt="대체 이미지"></li>
+    <li><img src="../img/pc02.jpg" alt="대체 이미지"></li>
+    <li><img src="../img/pc03.jpg" alt="대체 이미지"></li>
+  </ul>
+</div>
+
+<!-- <script src="js/jquery.min.js"></script>
+<script src="js/jquery.bxslider.min.js"></script>
+<script>
+  $(".slide").bxSlider({
+    auto:true,
+  })
+  </script> -->
+</body>
+</html>

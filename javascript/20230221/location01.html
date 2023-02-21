@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<div class="box"></div>
+
+
+<script>
+var text;
+var week = new Date().getDay();
+switch(week){
+  case 1 : //월요일
+  case 2:  //화요일
+  text=  "HTML5"
+  break;
+
+  case 3 :
+  case 4 : 
+  text ="javascript";
+  break;
+
+  case 5 :  
+  case 6: 
+  text = "English"
+  break;
+
+  case 0 :
+    default:
+      text:"수영";
+}
+document.write("오늘은<b>" + text + "</b> 학습하는 날입니다.")
+
+
+
+
+</script>
+</body>
+</html>

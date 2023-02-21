@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bxSlider</title>
+<link rel="stylesheet" href="css/jquery.bxslider.min.css">
+  
+  <style>
+    /* reset */
+    *{margin: 0;padding: 0;box-sizing: border-box;}
+    html,body{height: 100%;}
+    a:link,a:visited{text-decoration: none;color: black;}
+    li{list-style: none;}
+    .clearfix:after{content: "";display: block;clear: both;}
+
+
+    /* .bWrap .slide li img{width: 100%;} */
+    .container{width: 1000px;
+            margin: 0 auto;
+            position: relative;}
+
+.bWrap .slideli{height: 400px;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;}
+
+ .bWrap .slideli .txtWrap{height: 100%;}  
+ /* 부모가 높이 값이있기 때문에 100% 를 쓸수 있다 */
+
+.bWrap .tWrap{position: absolute;
+  width: 400px;
+  top:50%;
+  transform: translateY(-50%);  
+
+}
+
+.bx-wrapper {
+    position: relative;
+    margin-bottom: 60px;
+    padding: 0;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -moz-box-shadow: 0 0 0px #ccc;
+    -webkit-box-shadow: 0 0 0px #ccc;
+    box-shadow: 0 0 0px #ccc;
+    border: 5px none #fff;
+    background: #fff;
+}
+
+
+</style>
+
+
+</head>
+<body>
+
+<div class="bWrap">
+  <ul class="slide">
+    <li style="background-image:url(../img/images01.jpg)" class="slideli">
+      <div class="container txtWrap">
+        <div class="tWrap">
+          <h3>Lorem, ipsum.</h3>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      </div>
+    </li>
+    <li style="background-image:url(../img/images02.jpg)" class="slideli">
+      <div class="container txtWrap">
+        <div class="tWrap">
+          <h3>Lorem, ipsum.</h3>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      </div>
+    </li>
+    <li style="background-image:url(../img/images03.jpg)" class="slideli">
+      <div class="container txtWrap">
+        <div class="tWrap">
+          <h3>Lorem, ipsum.</h3>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      </div>
+    </li>
+    <li style="background-image:url(../img/images04.jpg)" class="slideli">
+      <div class="container txtWrap">
+        <div class="tWrap">
+          <h3>Lorem, ipsum.</h3>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      </div>
+    </li>
+    <li style="background-image:url(../img/images05.jpg)" class="slideli">
+      <div class="container txtWrap">
+        <div class="tWrap">
+          <h3>Lorem, ipsum.</h3>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+ <script src="js/jquery.min.js"></script>
+ <script src="js/jquery.bxslider.min.js"></script>
+<script>
+  $(".slide").bxSlider();
+</script>
+
+
+</body>
+</html>

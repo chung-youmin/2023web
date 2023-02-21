@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="./css/jquery.bxslider.min.css">
+<style>
+
+  /* reset */
+ *{margin: 0;padding: 0;box-sizing: border-box;}
+  body{background-color: pink ;}
+
+
+
+.bx-wrapper{
+  -moz-box-shadow: 0 0 0px #ccc;
+  -webkit-box-shadow: 0 0 0px #ccc;
+  box-shadow: 0 0 0px #ccc;
+  border: 0px none;
+  margin-bottom: 0;}
+  
+.bx-wrapper .bg-pager{
+  bottom: 30px;
+}
+ /* .slide1li img{width: 100%;} */
+
+.container{width: 1000px;
+    margin: 0 auto;
+    position: relative;}
+
+.bWrap.slideli{height: 400px;
+background-position:center;
+background-repeat:no-repeat;
+background-size: cover;}
+
+
+.bWrap .slideli .txtWrap{height: 100%;}
+
+.bWrap .slideli .tWrap{
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  transform:translateY(-50%) ;
+  text-shadow: 3xp 3px 0 rgba(255 255 255);}
+
+.bWrap .slideli h3{
+  margin-bottom: 10px;
+}
+</style>
+
+</head>
+<body>
+<div class="bWrap">
+  <ul class ="slide1"><!-- bgc 로사용  -->
+    <li style="background-image: url(../img/pc01.jpg)"class="slideli" >
+        <div class="container txtWrap">
+          <div class="tWrap">
+            <h3>lorem</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, quisquam!
+            </p>
+          </div>
+        </div>
+    </li>
+    <li style="background-image: url(../img/pc02.jpg)"class="slideli" >
+      <div class="container txtWrap">
+        <div class="tWrap">
+          <h3>lorem</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, quisquam!
+          </p>
+        </div>
+      </div>
+    </li>
+    <li style="background-image: url(../img/pc03.jpg)"class="slideli" >
+       <div class="container txtWrap">
+        <div class="tWrap">
+          <h3>lorem</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, quisquam!
+         </p>
+       </div>
+     </div>
+    </li>
+  </ul>
+</div>
+
+
+
+  <script src="js/jquery.min.js"></script>
+  <script  src="js/jquery.bxslider.min.js"></script>
+  <script>
+    $(".slide1").bxSlider({auto:true,control:false,
+    })
+
+  </script>
+</body>
+</html>
