@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+  /* reset */
+  html,body{height: 100%;}
+  *{margin: 0;padding: 0;box-sizing: border-box;}
+  li{list-style: none;}
+  a:link,a:visited{text-decoration: none;color: black;}
+  .clearfix:after{content: "";display: block;clear: both;}
+
+/* body */
+
+.hd{width: 1000px;
+    margin: 0 auto;}
+.gnb li{display: block;
+        height: 40px;
+        width: calc( ( 100% / 6 )) ;
+        float: left;
+        background-color: purple;
+        }
+.gnb li a{height: 40px;
+          display:flex;
+          justify-content: center;
+          align-items: center;
+}
+.gnb li:hover{background-color: tomato;}
+</style>
+</head>
+<body>
+<header class="hd">
+  <nav>
+    <ul class="gnb clearfix">
+
+    </ul>
+  </nav>
+</header>
+<script>
+const gMenu = ["회사소개","제품소개","사업영역","고객센터","사회공헌","인재채용",]
+const gLink = ["http://www.naver.com",
+                "http://www.naver.com",
+                "http://www.naver.com",
+                "http://www.naver.com",
+                "http://www.naver.com",
+                "http://www.naver.com",]
+let menu ="";                
+for(let i=0;i<gMenu.length;i++){
+  menu = menu + "<li>";
+  menu = menu + "<a href ='"+gLink[i]+"'>" + gMenu[i] +"</a>";
+  menu = menu + "</li>";
+}
+
+console.log(menu)
+document.getElementsByClassName("gnb")[0].innerHTML = menu;
+
+
+</script>
+  
+
+</body>
+</html>

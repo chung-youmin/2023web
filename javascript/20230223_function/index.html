@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+  /* reset */ 
+  html,body{height: 100%;}
+  *{margin: 0;padding: 0;box-sizing: border-box;}
+  li{list-style: none;}
+  a:link,a:visited{text-decoration: none;color: black;}
+  .clearfix::after{content: "";display:block;clear:both;}
+
+  .container{width: 1280px;margin: 0 auto;}
+
+.bWrap img{float:right;}
+
+.banner{
+  display: block;
+  float: left;
+  width: calc( ( 100% - 50px )/3);
+  border: 1px solid #888;
+  margin-right: 25px;
+}
+.banner:last-child{margin-right: 0;}
+
+</style>
+
+</head>
+<body>
+
+  <div class="container clearfix">
+    <div class="bWrap">
+    </div>
+  </div>
+  
+  <script>
+    const img = ["imgbg01.jpg","imgbg02.jpg","imgbg03.jpg",]
+    const title = ["회사개요","사업분야","환경경영",]
+    const text =["Lorem ipsum dolor sit.","Lorem ipsum dolor sit.","Lorem ipsum dolor sit.",]
+
+    let banner = "";
+    for(let i=0 ; i<img.length;i++){
+      banner +="<div class = 'banner'>";
+      banner += "<img src='./"+ img[i] +"'>";
+      banner += "<h3>"+ title[i] +"</h3>";
+      banner += "<p>"+ text[i] +"</p>";
+      banner += "</div>";
+    }
+
+    console.log(banner)
+    document.getElementsByClassName("bWrap")[0].innerHTML = banner
+
+</script>
+  
+</body>
+</html>

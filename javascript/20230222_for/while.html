@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> yumyum</title>
+</head>
+<body>
+<div id="city">도시</div>
+
+<script>
+// 1000 이하 숫자 더하기 (while)
+let num =1;
+let sum =0;
+while(num<=1000){
+  sum = sum +num;
+  num = num +1;
+}
+document.write(sum)
+
+// 10이하의 숫자 더하기 (for)
+//num = i로 지정 / sum을 sum1로 하자.
+let sum1=0;
+for( i =1;i<10;i++){
+  sum1 = sum1 + i
+}
+console.log(sum1)
+
+//배열과 배열에 link 넣기. 
+
+let arr = ["혜민","수민","지민","유민","재민"]
+
+console.log(arr[4])
+console.log("총배열 갯수" +arr.length);
+
+let name = ""
+let alink = [
+  "http://www.google.com",  
+  "http://www.daum.net",
+  "http://www.naver.com",
+  "http://www.nate.com",
+  "http://www.facebook.com",]
+
+//for(초기값 ; 조건문 ; 연산자){문법}
+
+for(i=0;i<arr.length;i++){
+
+  name =name+ "<a href='"+ alink[i] + "'>" + arr[i] + "</a>"
+  
+}
+
+// ""와 '' 가 들어가는 곳을 잘 봐야 하는데 
+// name = name + 
+// "<a href=
+// '    "+ alink[i] + "     '
+// >" 
+// + arr[i] + 
+// "</a>"
+
+//java와 javascript 에서 모두사용 됨
+            
+city += `<a href="${alink[i]}">${arr[i]}</a>`;
+
+//javascript 에서만 사용 됨.
+console.log(name);
+</script>
+</body>
+</html>

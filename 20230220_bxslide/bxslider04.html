@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<link rel="stylesheet" href="./css/jquery.bxslider.min.css">
+<style>
+  /* reset */
+  html,body{height: 100%;}
+  *{margin: 0;padding: 0;box-sizing:border-box;}
+  a:link,a:visited{text-decoration: none;color: black;}
+  li{list-style: none;}
+  .clearfix:after{content: "";display: block;clear: both;}
+
+  /* banner - bxSlider_img bg*/
+
+  .bWrap .slideli{height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+
+  .container{width: 1000px;
+  margin: 0 auto;
+  position: relative;}
+  
+  .bWrap .txtWrap{
+    height: 100%;
+  }
+  .bWrap .txtWrap .tWrap{
+    position: absolute;
+    width: 400px;
+    top:50%;
+    transform: translateY(-50%);}
+
+
+
+</style>
+
+
+<body>
+  <div class="bWrap">
+    <ul class="slide">
+      <li style="background-image: url(../img/pc01.jpg);" class ="slideli"> 
+      <!--bg로 img넣기 -->
+        <div class="container txtWrap">
+          <div class="tWrap">
+            <!-- text를 하나로 묶어서 움직이게 하기. -->
+            <h3>Lorem, ipsum.</h3>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+
+  </div>
+
+
+
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/jquery.bxslider.min.js"></script>
+  <script>
+    $("slide").bxSlider();
+
+  </script>
+</body>
+</html>
