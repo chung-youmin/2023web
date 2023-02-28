@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* reset */
+    *{margin: 0;padding: 0;box-sizing: border-box;}
+    html,body{height: 100%;}
+    body{display: flex;justify-content: center;align-items: center;}
+
+    /* btn작성 */
+    .btnWrap{
+      width: 50px;
+      height: 50px;
+      border: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .btnWrap .line{
+      width: 30px;
+      height: 3px;
+      border-radius: 2px;
+      background-color: tomato;
+      position: absolute;
+    }
+/* 버튼 누르기 전 css */
+    .line.line1{transform: translateY(-10px);}
+    .line.line2{opacity: 1;}
+    .line.line3{transform: translateY(+10px);}
+
+/* 버튼 누른 후 css */
+    .btnWrap.click .line.line1{transform: translateY(0) rotate(45deg);}
+    .btnWrap.click .line.line2{opacity:0 ;}
+    .btnWrap.click .line.line3{transform: translateY(0) rotate(-45deg);}
+
+
+  </style>
+</head>
+<body>
+ 
+  <!-- flex -->
+ <div class="btnWrap" onclick = "bclick()">
+  <div class="line line1"></div>
+  <div class="line line2"></div>
+  <div class="line line3"></div>
+ </div>
+  
+  <script>
+const btnWrapElem =document.getElementsByClassName("btnWrap")[0]
+    function bclick(){
+      btnWrapElem.classList.toggle("click")
+    }
+
+  </script>
+</body>
+</html>

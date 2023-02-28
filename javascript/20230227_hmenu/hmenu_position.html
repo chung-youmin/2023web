@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+  html,body{height: 100%}
+*{margin: 0;padding: 0;box-sizing: border-box;}
+
+
+body{display: flex;
+      justify-content: center;
+      align-items: center;
+    /* height: 100vh;*/
+  } 
+
+.btnWrap{width: 50px;
+        height: 50px;
+        border: 1px solid #000;
+      position: relative;}
+
+.btnWrap .line{width: 28px;height: 3px;
+  background-color: black;
+  border-radius: 2px;
+  position:absolute;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);   
+  /* margin-left:-15px;  margin-top:-1.5px; */
+  /* transform:translateX(-50%);transform:translateY(-50%) */
+}      
+
+.btnWrap .line1{transform: translate(-50%,calc(-50% - 10px));}
+
+.btnWrap .line3{transform: translate(-50%,calc(-50% + 10px));}
+
+.btnWrap.click.line1{ /* 초기값을넣어줘야한다.  */
+  transform: translate(-50%,-50%) rotate(45deg);}
+.btnWrap.click.line2{opacity: 0;}
+.btnWrap.click.line3{
+  transform:translate(-50%,-50%) rotate(-45deg);
+}
+</style>
+
+</head>
+<body>
+  <!-- position 사용 -->
+  <div class="btnWrap">
+    <div class="line line1"></div>
+    <div class="line line2"></div>
+    <div class="line line3"></div>
+  </div>
+
+  <script>
+const btnElem = document.querySelector(".btnWrap");
+
+btnElem.addEventListener("click",function(){
+btnElem.classList.add("click")
+})
+
+// btnElem.onclick = function(){}
+
+
+function  mClick(){
+  console.log("click")
+  btnElem.classList.toggle("click")
+
+}
+
+mClick()
+  </script>
+</body>
+</html>

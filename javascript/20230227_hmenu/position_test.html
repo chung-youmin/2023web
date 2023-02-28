@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  /* reset */
+  *{margin: 0;padding: 0;box-sizing: border-box;}
+  html,body{height: 100%;}
+
+/* body */
+body{display: flex;
+     justify-content: center;
+     align-items: center;}
+
+/* btn */
+.btnWrap{width: 50px;
+         height: 50px;
+         border: 1px solid #000;
+        position: relative;}
+
+.btnWrap .line{
+          width: 30px;
+          height: 3px;
+          border-radius: 2px;
+          background-color: TOMATO;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          }
+/* 버튼 클릭 전  */
+.btnWrap .line1{transform :translate(-50%,calc( -50% - 10px ))}
+
+.btnWrap .line3{transform: translate(-50%,calc( -50% + 10px ))}
+
+/* 버튼  클릭 후 */
+.btnWrap.click .line1{transform: translate(-50%,-50%) rotate(45deg);}
+.btnWrap.click .line2{opacity: 0;}
+.btnWrap.click .line3{transform: translates(-50%,-50%) rotate(-45deg);}
+
+
+</style>
+<body>
+  <div class="btnWrap" onclick ="bclick()">
+    <div class="line line1"></div>
+    <div class="line line2"></div>
+    <div class="line line3"></div>
+  </div>
+  <script>
+      // const btnElem = document.querySelector(".btnWrap");
+    const btnElem =document.getElementsByClassName("btnWrap")[0]
+    function bclick(){
+      btnElem.classList.toggle("click");
+    }
+
+
+
+
+
+  </script>
+</body>
+</html>
