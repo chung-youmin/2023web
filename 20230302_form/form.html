@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    *{margin: 0;padding: 0;}
+  fieldset{border: 0 none;}
+    input:focus{
+    background-color: tomato;
+    outline: none;
+    border: 0 none;}
+.blind{display: block;position: absolute;left: 0;top: -9000px;}
+</style>
+  
+</head>
+<body>
+  <form action="#"method="post">
+
+    <fieldset>
+      <legend class = "blind">기본정보</legend>
+      <label for="myName">이름</label>
+      <input type="text"name ="name" placeholder="성명"id="myName">
+      <label for="pwd">비밀번호</label>      
+      <input type="password" name="pw" placeholder="비밀번호" id="pwd">
+      <input type="submit" value="전송">
+    </fieldset>
+  </form>
+  </form>
+</body>
+</html>

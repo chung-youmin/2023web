@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>::::: To Do List :::::</title>
+<style>
+
+  /* reset */
+  *{margin: 0;padding: 0;box-sizing: border-box;}
+  html,body{height: 100%;}
+  a:link,a:visited{text-decoration: none;color: #333;}
+  li{list-style: none;}
+
+  /* body */
+.wrap{width: 300px;
+margin: 0 auto;
+background-color:tomato;}
+
+</style>
+</head>
+<body>
+<!-- body -->
+  <div class="wrap">
+
+    <input type="text" class ="inp" placeholder="">
+    <button class ="btn1">입력</button>
+  </div>
+<div class="listView">
+  <!-- inneHTML  listview -->
+</div>
+
+
+<!-- script -->
+<script>
+const inpElem =document.getElementsByClassName("inp")[0];
+const btn1Elem = document.getElementsByClassName("btn1")[0];
+
+const listElem =document.getElementsByClassName("listView")[0];
+const listData = [
+"지하철 타기",
+"버스갈아타기",
+"저녁식사하기",
+"비타민 먹기",
+"토익 RC풀기",
+
+]
+
+btn1Elem.addEventListener("click",function(){
+
+  if(inpElem.value ==""){
+    alert("오늘의 할일을 입력하세요");
+    inpElem.focus()}
+  else{listData.push(inpElem.value);
+  viewData();
+  inpElem.value="";
+  }
+})
+
+function viewData(){
+  let listTitle = "<ul>";
+    for(let i = 0 ;i<listData.length;i++){
+    listTitle += `<li>${listData[i]}</li>`;
+    listTitle +="</ul>";
+    }
+console.log(listTitle)
+listElem.innerHTML =  listTitle;
+}
+
+viewData()
+</script>
+
+
+<!-- <ul>
+  <li>listData[i]</li>
+</ul> -->
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> To do list </title>
+
+  <style>
+    /* reset */       
+*{margin: 0;padding: 0;box-sizing: border-box;}
+a:link,a:visited{text-decoration: none;color:#333}
+html,body{height: 100%;}
+li{list-style: none;}
+
+  /* body */
+
+
+
+
+  </style>
+</head>
+<body>
+  <!-- body -->
+
+  <div class="wrap">
+    <input type="text" class="inp" value=""placeholder = "오늘의 할일은...">
+    <button class = "btn1">입력</button>
+    
+  </div>
+
+  <div class="listView">
+  <!-- listView의 innerHTML부분 -->
+  </div>
+   
+  <!-- script -->
+  <script> 
+  // 변수 및 입력창 / 버튼 만들기.
+    const inpElem = document.getElementsByClassName("inp")[0];
+    const btn1Elem = document.getElementsByClassName("btn1")[0];
+  //data 입력하기.  
+    const listElem = document.getElementsByClassName("listView")[0];
+    const listData =[
+      "지하펄 타기",
+      "버스 갈아타기",
+      "저녁 먹기",
+      "토익RC 풀기",
+      
+    ]
+    // 함수 넣기. 
+    // 1. 버튼을 클릭하면 event가 일어났으면 함. 
+    // 2. event 는 아무것도 안쓰면("") alert "오늘의 할일을 입력하세요 "
+    //  입력하면 listData에 추가 되었으면...
+
+
+
+    btn1Elem.addEventListener("click",function(){
+      if (inpElem.value ==""){
+        alert("오늘의 할일을 입력하세요");
+        inpElem.focus()}     // 3. 그리고 focus 도 해주세요
+        
+      else{listData.push(inpElem.value);  //   4.listdata에 inpElem 을 넣어주세요
+        viewData();    // 6. viewdata 함수를 작동하세요
+        inpElem.value="";    // 7. 추가 한 후 공간은 다시 빈통으로 
+        }
+      })
+
+  
+      function viewData(){  // 8.viewData에 대한 함수를 만들어 보자. 
+        let listTitle = "<ul>";
+          for( let i = 0 ; i<listData.length ;i++){
+            listTitle += `<li>${listData[i]}</li>`;}
+            listTitle += "</ul>";
+
+            console.log(listTitle)  // 9. console.log 에서 한번 확인하고,
+            listElem.innerHTML = listTitle;   // 10. listTitle에 입력된 내용을 listElem에누적하세요.
+      }  
+viewData()     // 9. 함수는 밖에서  불러야 작동되니까 추가.
+
+
+
+  </script>
+
+
+<!-- <ul>      // 5. 늘어나느 list는 형식이 반복되니 이부분을 함수화해서 jquery사용하면 8번에 넣을 수 있다. 
+  <li>listData[1]</li>
+  <li>listData[2]</li>
+  <li>listData[3]</li>
+</ul> -->
+</body>
+</html>

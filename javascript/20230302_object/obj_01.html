@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>object_01 </title>
+</head>
+<style>
+/* reset */
+*{margin: 0;padding: 0;box-sizing: border-box;}
+li{list-style: none;}
+a:link,a:visited{text-decoration: none;color: black;}
+.clearfix:after{content: "";display: block;clear: both;}
+html,body{height: 100%;}
+
+/* body */
+
+</style>
+<body>
+
+  
+  <script>
+    // 1번 예제. 
+    const car = {
+      name : "sonata",
+      window : 4,
+      color :"blue",
+      speed :100,
+      start :function(){
+        console.log (car.speed)
+      },
+      stop : function(){},
+    }
+
+    // 객체는 실행문을 작성하는 것이 장점.
+    car.start()
+    console.log(car.name)
+
+    const acar =["sonata" , 4, "blue"]
+    console.log(acar[1])
+    // array는 data만 담아 두는 것. 
+
+    const stu = {eng:50,math:80,kor:60
+    }
+
+  </script>
+</body>
+</html>
