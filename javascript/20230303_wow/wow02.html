@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="animate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .container {
+      width: 1000px;
+      margin: 0 auto;
+    }
+
+    .hd {
+      height: 80px;
+      background-color: skyblue;
+    }
+
+    .visual {
+      height: 100vh;
+      background-image: url(./pc01.jpg);
+      background-position: center;
+      background-size: cover;
+    }
+
+    .content ul {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .content ul li .content ul img {
+      width: 100%;
+    }
+
+    .content ul .tWrap {
+      background-color: #ddd;
+      padding: 15px 20px;
+    }
+    .text{color: red;font-size: 3em;}
+  </style>
+</head>
+<i class=" text fa-solid fa-user"></i>
+<body>
+  <header class="hd container"> </header>
+  <div class="visual"></div>
+  <section class="content container">
+  <ul>
+    <li class="wow bounceInUp" date-wow-offset  ="100">
+      <img src="./testimg.jpg" alt="pic1">
+      <div class="tWrap">
+        <h3>Lorem, ipsum dolor.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, cumque.
+        </p>
+      </div>
+    </li>
+
+    <li class="wow bounceInUp" data-wow-delay="0.3s">
+      <img src="./testimg.jpg" alt="pic2">
+      <div class="tWrap">
+        <h3>Lorem, ipsum dolor.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, cumque.
+        </p>
+      </div>
+    </li>
+
+    <li class="wow bounceInUp"data-wow-delay="0.6s">
+      <img src="./testimg.jpg" alt="">
+      <div class="tWrap">
+        <h3>Lorem, ipsum dolor.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, cumque.
+        </p>
+      </div>
+    </li>
+
+    <li class="wow bounceInUp" data-wow-delay="0.9s">
+      <img src="./testimg.jpg" alt="">
+      <div class="tWrap">
+        <h3>Lorem, ipsum dolor.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, cumque.
+        </p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section class="content container">
+  <ul>
+    <li class="wow bounceInUp" data-wow-interation="infinite">
+      <img src="./testimg.jpg" alt="pic1">
+      <div class="tWrap">
+        <h3>Lorem, ipsum dolor.</h3>s
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, cumque.
+        </p>
+      </div>
+    </li>
+
+    <li class="wow bounceInUp" data-wow-interation="infinite">
+      <img src="./testimg.jpg" alt="pic2">
+      <div class="tWrap">
+        <h3>Lorem, ipsum dolor.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, cumque.
+        </p>
+      </div>
+    </li>
+
+    <li class="wow bounceInUp" data-wow-interation="infinite">
+      <img src="./testimg.jpg" alt="">
+      <div class="tWrap">
+        <h3>Lorem, ipsum dolor.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, cumque.
+        </p>
+      </div>
+    </li>
+
+    <li class="wow bounceInUp" data-wow-interation="infinite">
+      <img src="./testimg.jpg" alt="">
+      <div class="tWrap">
+        <h3>Lorem, ipsum dolor.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, cumque.
+        </p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+  <script src="wow.js"></script>
+  <script>
+    new WOW().init();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+<!-- css link reset -->
+<link rel="stylesheet" href="../../css/reset.css">
+<style>
+  /* body 관련 css */
+.wrap, .listView{
+  width: 400px;margin: 0 auto;
+}
+
+.Wrap{background-color: pink;}
+.btnAllDel{display: none;}
+.listView{background-color:#333;align-content:center;}
+.listView ul li{display: flex;
+  justify-content: space-between;
+align-items: center;}
+span{background-color:tomato;}
+
+
+
+</style>
+</head>
+<body>
+<!-- body -->
+<div class="wrap">
+  <input type="text" class ="inp" value="" placeholder="오늘의할일은...">
+  <button class = "btninsert">입력</button>
+  <button class = "btnDelAll" onclick="allDel()">전체삭제</button>
+</div>
+
+<div class="listView">
+  <ul></ul>
+</div>
+  
+<!-- script -->
+<script>
+  const inpElem =document.querySelector(".inp");
+  const btn1Elem =document.querySelector(".btninsert");
+  const btn2Elem =document.querySelector(".btnDelAll");
+  
+  const listElem =document.querySelector(".listView");
+
+  let listData=[
+    "점심밥 먹기",
+    "오후 수업 듣기",
+    "졸지 않기",
+  ]
+
+  btn1Elem.addEventListener("click",function(){
+    if(inpElem.value == ""){
+      alert("오늘의 할일을 추가하세요");
+      inpElem.focus();
+    }else{
+      listData.push(inpElem.value);
+      inpElem.value = ""
+      viewData();
+    }
+  })
+
+    function viewData(){
+      let viewList = "";
+      listData.forEach(function(item,index)
+      {
+        viewList += `<li> ${item}<span onclick ="itemDel(${index})">삭제</span></li>`
+      })
+listElem.innerHTML = viewList;
+
+if(listData.length>0){
+  document.querySelector(".btnAllDel").style.display="block"
+}else{
+  document.querySelector(".btnAllDel").style.display="none"
+}
+    };
+viewData();
+
+function allDel(){
+  listData=[];
+  viewData();
+}
+
+function itemDel(index){
+  listData.splice(index,1);
+  viewData();
+}
+
+
+</script>
+</body>
+</html>

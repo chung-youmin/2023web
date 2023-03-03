@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+ <!-- reset style css -->
+  <link rel="stylesheet" href="../../css/reset.css">
+
+<style>
+  
+    /* body */
+     .inpWrap, .listView{width: 400px;margin: 0  auto;
+    }
+    .inpWrap{background-color:beige;}
+    .btnAllDel{display: none;}
+    .listView{background-color: rgb(7, 224, 101);}
+    .listView ul li{ display: flex;
+      justify-content:space-between;
+    align-items: center;}
+    span{background-color: tomato;}
+    /* arr.splice(index,1) 사용 할 예정.0번째 아이를 1로 삭제 한다. */
+
+</style>
+
+</head>
+
+<body>
+<!-- body -->
+
+  <div class="inpWrap">
+    <input type="text" class="inp" value ="" placeholder="오늘의 할일은...">
+    <button class="btn1">입력</button>
+    <button class ="btnAllDel" onclick ="allDel()">전체삭제</button>
+  
+  </div>
+  <div class="listView">
+    <ul></ul>
+  
+    <!-- onclick 후에함수여야한다. -->
+    <!-- 작업한것 출력되는 공간.  -->
+  </div>
+
+<!-- script -->
+
+  <script>
+    const inpElem = document.querySelector(".inp");
+    const btn1Elem = document.querySelector(".btn1");
+    const listElem = document.querySelector(".listView ul");
+    
+
+    let listData = [
+      "뛰어가자",
+      "농구하러 가자",
+      "토익RC풀기",
+
+    ]
+    // btn1Elem.addEventListener("click",btn1Event)
+    // btn1Elem.onclick =  function(){}
+  
+  
+  
+    // (아래) 클릭을 하면 오늘할일을 입력하라고 뜨거나, 그 inpElem을 listData 에 추가하여라.
+
+    btn1Elem.addEventListener("click",function(){
+
+        // console.log(inpElem.value)
+      if(inpElem.value ==""){
+          alert("오늘의 할일을 입력하세요")
+          inpElem.focus()
+          
+         } else{
+           listData.push(inpElem.value);
+           inpElem.value = "";
+           viewData()
+       }
+    })
+  
+    //viewData 라는 함수가 실행 되어야 하는데...
+    // 
+
+    function viewData(){
+      let viewList ="";
+      for(let i = 0 ; i<listData.length ; i++){
+     
+      viewList +=  "<li>"+ listData[i] +"<span onclick ='itemDel("+ i +")'> 삭제</span></li>"
+      }
+     };
+
+      listData.forEach(function(item,index){
+        viewList +=`<li> ${item}<span  onclick = "itemDel(${index})"> 삭제</span> </li>`
+      })
+        
+      
+      listElem.innerHTML = viewList;
+
+      if(listData.length>0){
+        document.querySelector(".btnAllDel").style.display="block"
+      } else{
+        document.querySelector(".btnAllDel").style.display="none"
+      }
+
+    };
+
+    viewData();
+    
+    function allDel(){
+      listData = [];
+      viewData();
+    }
+
+
+    function itemDel(index){
+      listData.splice(index,1);
+      viewData();
+    }
+
+   </script>
+</body>
+
+</html>
