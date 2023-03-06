@@ -83,11 +83,11 @@
 
     function viewData(){
       let viewList ="";
-      for(let i = 0 ; i<listData.length ; i++){
+    //   for(let i = 0 ; i<listData.length ; i++){
      
-      viewList +=  "<li>"+ listData[i] +"<span onclick ='itemDel("+ i +")'> 삭제</span></li>"
-      }
-     };
+    //   viewList +=  "<li>"+ listData[i] +"<span onclick ='itemDel("+ i +")'> 삭제</span></li>"
+    //   }
+    //  };
 
       listData.forEach(function(item,index){
         viewList +=`<li> ${item}<span  onclick = "itemDel(${index})"> 삭제</span> </li>`
