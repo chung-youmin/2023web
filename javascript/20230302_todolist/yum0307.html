@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>:::::YUM TO DO LIST:::::</title>
+  <!-- reset -->
+  <link rel="stylesheet" href="../css/reset.css">
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css"
+    integrity="sha512-cHxvm20nkjOUySu7jdwiUxgGy11vuVPE9YeK89geLMLMMEOcKFyS2i+8wo0FOwyQO/bL8Bvq1KMsqK4bbOsPnA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- 아이콘 -->
+  <!-- <i class="fa-solid fa-square-check"></i> -->
+  <!-- <i class="fa-regular fa-square"></i> -->
+
+  <!-- <i class="fa-solid fa-trash"></i> -->
+  <!-- <i class="fa-solid fa-wrench"></i> -->
+
+  <style>
+    .btn_modi {
+      display: none;
+    }
+
+    .wrapper {
+      display: block;
+      background-image: url(./image.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 500px;
+      margin: 0 auto;
+      height: 100%;
+    }
+
+    .listview {
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    .inpWrap .btn_input,
+    .inpWrap .btn_AllDel {
+      background: #6A7F9E;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="inpWrap">
+      <input type="hidden" class="num">
+      <input type="text" class="inp" placeholder="오늘의 할일은....">
+      <button class="btn_input">입력</button>
+      <button class="btn_modi">수정</button>
+      <button class="btn_AllDel" onclick="listAllDel()">전체삭제</button>
+    </div>
+
+    <div class="listview">
+      <ul>
+        <!-- listData innerHTML -->
+      </ul>
+    </div>
+  </div>
+  <!-- script -->
+  <script>
+
+    let listData = []
+
+    const numElem = document.querySelector(".num")
+    const inpElem = document.querySelector(".inp")
+    const btnIpElem = document.querySelector(".btn_input")
+    const btnMOElem = document.querySelector(".btn_modi")
+    const listElem = document.querySelector(".listview")
+
+    // 입력창 정보
+    btnIpElem.addEventListener("click", function () {
+
+      let value = { todo: inpElem.value, done: false }
+
+      if (inpElem.value == "") {
+        alert("뭐하냐..입력안하고...")
+        inpElem.focus()
+      } else {
+        listData.push(value);
+        inpElem.value = "";
+        viewData();
+      }
+    })
+
+    //수정
+    // inElem의 numElem의 todo값으로 입력해줘라.
+    btnMOElem.addEventListener("click", function () {
+      listData[numElem.value].todo = inpElem.value;
+      listData[numElem.value].done = false;
+      inpElem.value = "";
+      btnIpElem.style.display = "inline-block";
+      btnMOElem.style.display = "none";
+    })
+    viewData();
+    // viewData를 언급 많이했으니까 정의해주자. 
+
+    function viewData() {
+
+      let viewList = "";
+      listData.forEach(function (item, index) {
+        console.log(item.todo)
+
+        if (item.done == true) {
+          viewList += `<li class="item done"> ${listData[index].todo}`
+        } else {
+          viewList +=  `<li class = "item">${item.todo}`
+        
+        } 
+        viewList += `<div class ="icon">
+          <a href="javascript:void(0)" onclick ="itemDel"><i class="fa-solid fa-trash"></i></a>
+          <a href="javascript:void(0)" onclick ="modi"><i class="fa-solid fa-wrench"></i></a>
+          <a href="javascript:void(0)" onclick ="done"><i class="fa-solid fa-square-check"></a>
+          </div></li>`
+      })
+        listElem.innerHTML =viewList;
+    }
+viewData();
+
+// 각각을 지워보자. 
+function itemDel(){
+  listData.splice(index,1)
+  viewData();
+}
+
+// done 을입력해보자. 
+function done(){
+  
+}
+  </script>
+  <li>
+    
+  </li>
+
+
+</body>
+
+</html>
