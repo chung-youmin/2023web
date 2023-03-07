@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-do-list</title>
+  <!-- reset -->
+  <link rel="stylesheet" href="../css/reset.css">
+
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css"
+    integrity="sha512-cHxvm20nkjOUySu7jdwiUxgGy11vuVPE9YeK89geLMLMMEOcKFyS2i+8wo0FOwyQO/bL8Bvq1KMsqK4bbOsPnA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- style -->
+  <style>
+    .btn_modi {
+      display: none;
+    }
+
+    .listView,
+    .inpWrap {
+      width: 300px;
+      margin: 0 auto;
+    }
+
+    .inpWrap {
+      background-color: skyblue;
+    }
+
+    .listView {
+      background-color: pink;
+    }
+
+    .listView ul li {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- header -->
+  <div class="inpWrap">
+    <input type="text" class="inp">
+    <button class="btn_input">입력</button>
+    <button class="btn_modi">수정</button>
+  </div>
+
+  <div class="listView">
+    <ul></ul>
+    <button class="btnAllDel" onclick="listAllDel()">전체삭제</button>
+  </div>
+
+  <!-- script -->
+  <script>
+
+    const inpElem = document.querySelector(".inp");
+    const btnIpElem = document.querySelector(".btn_input")
+    const btnMoElem = document.querySelector("btn_modi")
+    const listElem = document.querySelector("listView")
+
+    let listData = ["", "", "", "",]
+
+    btnIpElem.addEventListener("click", function () {
+      if (inpElem.value == "") {
+        alert("오늘의 할 일을 입력하세요")
+        inpElem.focus();
+      } else {
+        listData.push(inpElem.value)
+        localStorage.setItem(inpElem.value, inpElem.value);
+        viewData();
+        inpElem.value = "";
+      }
+    })
+
+
+    console.log(listData)
+
+    function viewData() {
+      listData = []
+      for (let i = 0; localStorage.length > i; i++) {
+        listData.push(localStorage.key(i));
+      }
+      console.log(listData)
+
+
+      let viewList = "";
+      listData.forEach(function (item, index) {
+        viewList += ` <li> 
+          <div class="icon1"><a href="#"> 
+            <i class="fa-solid fa-stop"></i>
+            <i class="fa-solid fa-square-check"></i>
+            박스</a></div>
+          <div class="list">입력창</div>
+          <div class="icon2">
+          <a href="#">1<i class="fa-solid fa-trash"></i></a>
+          <a href="#">2<i class="fa-solid fa-list"></i></a>
+          </div></li>`
+      })
+    }
+
+
+  </script>
+
+  <!-- <li>
+    <div class="icon1">
+      <a href="#"> 박스</a>
+    </div>
+    <div class="list">입력창</div>
+    <div class="icon2">
+      <a href="#">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+
+    </div>
+
+  </li> -->
+
+
+
+  
+</body>
+
+</html>

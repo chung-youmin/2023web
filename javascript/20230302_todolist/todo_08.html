@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+<!-- reset -->
+<link rel="stylesheet" href="../css/reset.css">
+<!-- font-awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- style data -->
+<style>
+.btn_modi{
+  display: none;
+}
+.listView, 
+.inpWrap{
+  width: 300px;
+  margin: 0 auto;}
+.inpWrap{background: skyblue;}
+.listView{background: pink;}
+
+.listView ul li{display: flex;
+margin-bottom: 5px;}
+.listView ul li .icon{
+  margin-left: auto;
+  background: wheat;
+  padding: 5px 10px;
+  font-size: 12px;
+  display: flex;
+  gap: 10px;}
+
+  .listView ul li .list{
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    }
+</style>
+
+</head>
+<body>
+   <div class="inpWrap">
+  <input type="text" class="inp">
+  <button class = "btn_input">입력</button>
+  <button class = "btn_modi">수정</button>
+  </div>
+
+  <div class="listView">
+    <ul></ul>
+    <button class="btnAllDel" onclick ="listAllDel()">전체삭제</button>
+  </div>
+<script>
+  const inpElem = document.querySelector(".inp");
+  const btnIpElem = document.querySelector(".btn_input");
+  const btnMOElem = document.querySelector(".btn_modi");
+  const listElem = document.querySelector(".listView ul");
+  
+  
+  let listData =["자바스크립트1","자바스크립트2","자바스크립트3","자바스크립트4",];
+
+// $(".btn_input").on("click",function(){})
+// Data 입력 
+btnIpElem.addEventListener("click",function(){
+
+  if(inpElem.value !=""){
+  listData.push(inpElem.value)
+  localStorage.setItem(inpElem.value,inpElem.value)
+  viewData();
+  inpElem.value="";
+} else{
+ alert("오늘의 할 일을 입력하세요") 
+ inpElem.focus()
+}
+console.log(listData)
+  })
+
+  function viewData(){
+      listData=[]
+
+    for(let i =0 ; localStorage.length>i ; i++){
+      listData.push(localStorage.key(i));
+      }
+      console.log(listData)
+
+    let viewList ="";
+    listData.forEach(function(item,index){
+      viewList += `<li>
+        <div class="list">${item}</div>
+        <div class ='icon'>
+        <a href="#" onclick ="itemDel('${item}')"><i class="fa-sharp fa-solid fa-trash"></i></a>
+      
+        
+        <a href="#" onclick = "item_modi('${item}')"><i class="fa-solid fa-hammer"></i></a>
+        <a href="#"><i class="fa-solid fa-square-check"></i></a>
+        </div></li>`
+    })
+      //  아래 함수에서 localstorage 의 key 값을 가져오려는데 그게문자니까 'item'을 문자로 가져와야하기때문에 
+      //  '${item}' 으로 문자화해준거임. 
+  
+  listElem.innerHTML =viewList
+
+  };
+  viewData();
+// 각자 지우기 
+  function itemDel(item){
+    console.log(item)
+    localStorage.removeItem(item)
+    viewData()
+  }
+
+// AllDel
+  function listAllDel(){
+    localStorage.clear();
+    viewData()
+}
+
+// 수정하기
+function item_modi(item){
+
+  localStorage.getItem('item') ; 
+  viewData()
+  
+}
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

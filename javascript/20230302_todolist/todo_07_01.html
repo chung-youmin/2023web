@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> ::: TO DO LIST :::</title>
+  <!-- reset -->
+  <link rel="stylesheet" href="../css/reset.css">
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- style data -->
+
+  <style>
+    .btn_modi {
+      display: none;
+    }
+
+    .listView,
+    .inpWrap {
+      width: 300px;
+      margin: 0 auto;
+    }
+
+    .inpWrap {
+      background: skyblue;
+    }
+
+    .listView {
+      background: pink;
+    }
+
+    .listView ul li {
+      display: flex;
+      margin-bottom: 5px;
+    }
+
+    .listView ul li .icon {
+      margin-left: auto;
+      background: wheat;
+      padding: 5px 10px;
+      font-size: 12px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .listView ul li a {
+      color: tomato;
+    }
+
+    .listView ul li .list {
+      display: flex;
+      align-items: center;
+      padding-left: 5px;
+    }
+
+    .item.done {
+      background: skyblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="inpWrap">
+    <input type="hidden" class="num">
+    <input type="text" class="inp">
+    <button class="btn_input">입력</button>
+    <button class="btn_modi">수정</button>
+  </div>
+
+  <div class="listView">
+    <ul></ul>
+    <button class="btnAllDel" onclick="listAllDel()">전체삭제</button>
+  </div>
+
+  <!--script -->
+  <script>
+
+    let listData = []
+
+    const inpElem = document.querySelector(".inp");
+    const btnIpElem = document.querySelector(".btn_input");
+    const btnMOElem = document.querySelector(".btn_modi");
+    const listElem = document.querySelector(".listView ul");
+
+    const numElem = document.querySelector(".num")
+
+    // 입력
+    btnIpElem.addEventListener("click", function () {
+      let value = { todo: inpElem.value, done: false }
+
+      if (inpElem.value != "") {
+        listData.push(value);
+
+        let valueData = JSON.stringify(listData)
+        localStorage.setItem("todoData", valueData)
+
+        viewData()
+        inpElem.value = "";
+      } else {
+        alert("오늘의 할일을 입력하세요")
+        inpElem.focus();
+      }
+
+      console.log(value)
+    })
+    // 수정
+    btnMOElem.addEventListener("click", function () {
+      listData[numElem.value].todo = inpElem.value;
+      listData[numElem.value].done = false;
+      inpElem.value = "";
+      btnIpElem.style.display = "inline-block";
+      btnMOElem.style.display = "none";
+
+      // local storage.
+      let valueData = JSON.stringify(listData)
+      localStorage.setItem("todoData", valueData)
+      viewData()
+
+
+    })
+
+    //화면에뿌려줘야 해...
+    function viewData(){
+            if(localStorage.length>0){
+                let localData = localStorage.getItem("todoData");
+                listData = JSON.parse(localData)
+            }
+
+            let viewList = "";
+            listData.forEach(function(item,index){
+                console.log(item.todo)
+
+                if(item.done == true){
+                    viewList += `<li class="item done">${listData[index].todo}`
+                }else{
+                    viewList += `<li class="item">${item.todo}`
+                }
+                viewList += `<div class="icon">
+                            <a href="javascript:void(0)" onclick="itemDel(${index})"><i class="fa-solid fa-trash-can"></i></a>
+                            <a href="javascript:void(0)" onclick="modi('${item.todo}',${index})"><i class="fa-sharp fa-solid fa-hammer"></i></a>
+                            <a href="javascript:void(0)" onclick="done(${index})" class="han"><i class="fa-solid fa-square-check"></i></a>
+                            </div></li>`
+               
+            })
+
+            listElem.innerHTML = viewList;
+    }
+
+    viewData();
+    //  개별 삭제
+    function itemDel(index) {
+      listData.splice(index, 1)
+
+      // local storage.
+      let valueData = JSON.stringify(listData)
+      localStorage.setItem("todoData", valueData)
+      viewData()
+    }
+
+    // 오늘의 할일을 했다. 안했다.
+    function done(index) {
+      console.log(index)
+      // if(listData[index].done == true){
+      //   listData[index].done = false
+      // }else{listData[index].done = true} 
+
+      listData[index].done = !listData[index].done;
+      // local storage.
+      let valueData = JSON.stringify(listData)
+      localStorage.setItem("todoData", valueData)
+
+      viewData()
+    }
+
+    // 수정하기. input hidden으로공간만들기.
+    function modi(todo, index) {
+      console.log(todo + index)
+      inpElem.value = todo;
+      numElem.value = index;
+      btnIpElem.style.display = "none";
+      btnMOElem.style.display = "inline-block";
+      viewData()
+    }
+    //전체삭제
+
+    function listAllDel() {
+      listData = [];
+      // local storage.
+      let valueData = JSON.stringify(listData)
+      localStorage.setItem("todoData", valueData)
+
+      viewData()
+    }
+
+  </script>
+
+
+</body>
+
+</html>
