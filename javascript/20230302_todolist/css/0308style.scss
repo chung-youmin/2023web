@@ -1,0 +1,51 @@
+$mColor:#6A7F9E;
+$fColor:black;
+$width:680px;
+
+.btn_modi{display: none;}
+
+.wrapper{display: flex;
+  justify-content: center;
+  width: 680px;
+  height: 510px;
+  background-image: url(../image.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  .inpwrap{
+    .inp{background-color: $mColor;
+    }
+    .btn_inp{background-color: $mColor;
+    color:$fColor;}
+    .btn_modi{background-color: $mColor;
+      color:$fColor;}
+    .btn_AllDel{background-color: $mColor;
+      color:$fColor;}
+  
+  
+  .listview{display: flex;
+    color:$fColor;
+    ul{
+      li{
+
+        .icon{
+          a{
+            &:hover{}
+
+          }
+
+
+        }
+
+        a{
+
+        }
+        &:hover{
+
+        }
+      }
+    }
+  }}
+
+
+}

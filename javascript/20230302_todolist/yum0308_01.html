@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>:::::(final)To Do List :::::</title>
+  <!-- reset & scss-->
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="./css/0308style.css">
+
+  <!-- fontawesome refular.min-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/regular.min.css"
+    integrity="sha512-3YMBYASBKTrccbNMWlnn0ZoEOfRjVs9qo/dlNRea196pg78HaO0H/xPPO2n6MIqV6CgTYcWJ1ZB2EgWjeNP6XA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- <i class="fa-solid fa-square-check"></i> -->
+  <!-- <i class="fa-regular fa-square"></i> -->
+
+  <!-- <i class="fa-solid fa-trash"></i> -->
+  <!-- <i class="fa-solid fa-wrench"></i> -->
+</head>
+
+<body>
+  
+    <div class="wrapper">
+      <div class="inpwrap">
+        <input type="hidden" class="num">
+        <input type="text" class="inp" placeholder="오늘 해야 할일은...">
+        <button class="btn_inp">입력</button>
+        <button class="btn_modi">수정</button>
+        <button class="btn_AllDel" onclick="listAllDel()">전체삭제</button>
+      </div>
+      <div class="listview">
+        <ul>
+          <!-- listData  innerHTML -->
+        </ul>
+      </div>
+    </div>
+  <!-- script -->
+  <script>
+    let listData =[];
+
+    const numElem = document.querySelector(".num")
+    const inpElem = document.querySelector(".inp")
+    const btn_inpElem = document.querySelector(".btn_inp")
+    const btn_ModiElem = document.querySelector(".btn_modi")
+    const listElem = document.querySelector(".listview")
+
+    // 입력 값에 대한 저장. 
+    btn_inpElem.addEventListener("click",function(){
+      let value = {todo:inpElem.value,done:false}
+      if(inpElem.value == ""){
+        alert("정신차리고 계획부터 세워라");
+        inpElem.focus();
+      }else{listData.push(inpElem.value);
+        inpElem.value="";
+      }viewData();
+
+      // viewdata 후에 localStorage  저장하자 
+      let valueData =JSON.stringify(listData)
+      localStorage.setItem("todoData",indexData)
+    })
+
+    //
+    btn_ModiElem.addEventListener("click",function(){
+      listData[numElem.value]=inpElem.value;
+      listData[numElem.value]=false;
+
+      inpElem.value="";
+      btn_inpElem.style.display="inline-block";
+      btn_ModiElem.style.display="none";
+    })
+    viewData();
+    // 앞에서 자주 언급했으니 viewData 함수 해주자. 
+    function viewData(){
+
+      if(localStorage.length>0){
+        let localData = localStorage.getItem("todoData");
+        listData =JSON.parse(localdata)
+      }
+
+      let viewList="";
+      listData.forEach(function(item,index){
+
+        if(item.done == true){
+          viewList += `<li class ="item done">${listData[index].todo}`
+         }else{
+          viewList += `<li class ="item">${listData[index].todo}`
+        }
+
+        viewList += `<div class ="icon">
+          `
+      })
+
+    }
+
+
+  </script>
+
+</body>
+
+</html>

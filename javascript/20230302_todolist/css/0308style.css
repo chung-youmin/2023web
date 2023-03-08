@@ -1,0 +1,32 @@
+.btn_modi {
+  display: none;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  width: 680px;
+  height: 510px;
+  background-image: url(../image.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.wrapper .inpwrap .inp {
+  background-color: #6A7F9E;
+}
+.wrapper .inpwrap .btn_inp {
+  background-color: #6A7F9E;
+  color: black;
+}
+.wrapper .inpwrap .btn_modi {
+  background-color: #6A7F9E;
+  color: black;
+}
+.wrapper .inpwrap .btn_AllDel {
+  background-color: #6A7F9E;
+  color: black;
+}
+.wrapper .inpwrap .listview {
+  display: flex;
+  color: black;
+}/*# sourceMappingURL=0308style.css.map */

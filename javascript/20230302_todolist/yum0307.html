@@ -9,9 +9,10 @@
   <!-- reset -->
   <link rel="stylesheet" href="../css/reset.css">
   <!-- fontawesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css"
-    integrity="sha512-cHxvm20nkjOUySu7jdwiUxgGy11vuVPE9YeK89geLMLMMEOcKFyS2i+8wo0FOwyQO/bL8Bvq1KMsqK4bbOsPnA=="
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!-- 아이콘 -->
   <!-- <i class="fa-solid fa-square-check"></i> -->
   <!-- <i class="fa-regular fa-square"></i> -->
@@ -29,20 +30,56 @@
       background-image: url(./image.jpg);
       background-repeat: no-repeat;
       background-position: center;
-      width: 500px;
+      width: 680px;
       margin: 0 auto;
-      height: 100%;
+      height: 510px;
     }
 
+    .inpWrap {
+      display: flex;
+      justify-content: center;
+
+    }
+
+    .inpWrap,
     .listview {
-      width: 500px;
+      width: 400px;
       margin: 0 auto;
+    }
+
+    .listview ul li {
+      display: flex;
+      padding: 5px 0;
+      border: 2px solid #6A7F9E;
+      color: black;
+    }
+
+    .listview ul li .list {
+      display: flex;
+      align-items: center;
+    }
+
+    .listview ul li .icon {
+      margin-left: auto;
+      background: #6A7F9E;
+      padding: auto;
+      gap: 10px;
+    }
+
+    .listview ul li .icon a {
+      color: white;
     }
 
     .inpWrap .btn_input,
     .inpWrap .btn_AllDel {
       background: #6A7F9E;
+      padding: 0 10px;
+      margin-left: 10px;
       color: white;
+    }
+
+    .item.done {
+      text-decoration: line-through red;
     }
   </style>
 </head>
@@ -66,7 +103,8 @@
   <!-- script -->
   <script>
 
-    let listData = []
+    let listData = [];
+
 
     const numElem = document.querySelector(".num")
     const inpElem = document.querySelector(".inp")
@@ -85,7 +123,15 @@
       } else {
         listData.push(value);
         inpElem.value = "";
+
+        // localStorage Insert
+        let valueData = JSON.stringify(listData)
+        localStorage.setItem("todoData", valueData)
+
+
+
         viewData();
+
       }
     })
 
@@ -98,10 +144,18 @@
       btnIpElem.style.display = "inline-block";
       btnMOElem.style.display = "none";
     })
+     // localStorage Insert
+     let valueData = JSON.stringify(listData)
+        localStorage.setItem("todoData", valueData)
     viewData();
     // viewData를 언급 많이했으니까 정의해주자. 
 
     function viewData() {
+
+      if(localStorage.length>0){
+        let localData =localStorage.getItem("todoData");
+        listData =JSON.parse(localData)
+      }
 
       let viewList = "";
       listData.forEach(function (item, index) {
@@ -110,32 +164,64 @@
         if (item.done == true) {
           viewList += `<li class="item done"> ${listData[index].todo}`
         } else {
-          viewList +=  `<li class = "item">${item.todo}`
-        
-        } 
+          viewList += `<li class = "item">${item.todo}`
+
+        }
         viewList += `<div class ="icon">
           <a href="javascript:void(0)" onclick ="itemDel"><i class="fa-solid fa-trash"></i></a>
           <a href="javascript:void(0)" onclick ="modi"><i class="fa-solid fa-wrench"></i></a>
-          <a href="javascript:void(0)" onclick ="done"><i class="fa-solid fa-square-check"></a>
+          <a href="javascript:void(0)" onclick ="done"><i class="fa-solid fa-square-check"></i></a>
           </div></li>`
       })
-        listElem.innerHTML =viewList;
+      listElem.innerHTML = viewList;
     }
-viewData();
+    viewData(); 
 
-// 각각을 지워보자. 
-function itemDel(){
-  listData.splice(index,1)
-  viewData();
-}
+    // 각각을 지워보자. 
+    function itemDel(index) {
+      listData.splice(index,1);
 
-// done 을입력해보자. 
-function done(){
-  
-}
+       // localStorage Insert
+       let valueData = JSON.stringify(listData)
+        localStorage.setItem("todoData", valueData)
+
+        viewData()
+    }
+
+    // done 을입력해보자. 
+    function done(index) {
+      console.log(index)
+      if (listData[index].done == true) {
+        listData[index].done = false
+      } else {
+        listData[index].done = true
+      }
+ // localStorage Insert
+ let valueData = JSON.stringify(listData)
+        localStorage.setItem("todoData", valueData)
+
+      viewData();
+    }
+
+    // modi에 대한 함수 작성. 
+    function modi(todo, index) {
+      console.log(todo + index)
+      inpElem.value = todo;
+      numElem.value = index;
+      btnIpElem.style.display = "none";
+      btnMOElem.style.display = "inline-block";
+    }
+
+    function listAllDel() {
+      listData = [];
+       // localStorage Insert
+       let valueData = JSON.stringify(listData)
+        localStorage.setItem("todoData", valueData)
+    
+    viewData()  }
   </script>
   <li>
-    
+
   </li>
 
 
