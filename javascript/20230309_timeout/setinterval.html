@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class ="btn1">클릭</button>
+  <button class ="btn2">멈춤</button>
+  <button class ="btn3">실행</button>
+  <script>
+    function han(time){
+      alert(time+"초 입니다")
+    }
+ 
+let i =0;
+let setHan;
+
+    function inter(){
+      let setHan = setInterval(function(){
+      console.log(i++)
+
+    })}
+
+document.querySelector(".btn2").addEventListener("click",function(){
+clearInterval(setHan)
+})
+inter()
+document.querySelector(".btn3").addEventListener("click",function(){
+  let setHan = setInterval(function(){
+      console.log(i++)
+    },1000)
+    inter()
+})
+
+
+    </script>
+</body>
+</html>
